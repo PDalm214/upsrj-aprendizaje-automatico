@@ -51,7 +51,8 @@ def introduction():
         print(f"- Promedio por carrera:\n{promedio_por_carrera}")
 
         # Exportar resultados
-        OUTPUT = os.path.join(os.path.dirname(__file__), "outputs", "aprobados.csv")
+        OUTPUT = os.path.join(os.path.dirname(CSV_FILE), "..", "outputs", "aprobados.csv")
+        os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
         try:
             intro.export_data(aprobados, OUTPUT)
             print(f"- Datos exportados a: {OUTPUT}")

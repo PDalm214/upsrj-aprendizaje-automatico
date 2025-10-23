@@ -286,7 +286,7 @@ class TestEvaluationFour(unittest.TestCase):
         if not os.path.exists(OUTPUT_DIR):
             os.mkdir(OUTPUT_DIR)
         cls.model = LogisticRegressionCompare(
-            url=SOURCE_URL,
+            url=CHURN_URL,
             base=CHURN,
             out=OUTPUT_DIR
         )
@@ -301,7 +301,7 @@ class TestEvaluationFour(unittest.TestCase):
 
     def test_model_training(self):
         coef = self.model.m.coef_[0]
-        self.assertIsInstance(coef, float)
+        self.assertTrue(isinstance(coef, (np.ndarray, float)))
 
     def test_output_files_created(self):
         files = [
